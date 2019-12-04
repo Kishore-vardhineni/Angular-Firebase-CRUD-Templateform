@@ -1,0 +1,37 @@
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { ToastrModule } from 'ng6-toastr-notifications';
+
+import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeeService } from './shared/employee.service';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    EmployeesComponent,
+    EmployeeComponent,
+    EmployeeListComponent,
+  ],
+  imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    Ng4LoadingSpinnerModule.forRoot(),
+    ToastrModule.forRoot(),
+  ],
+  providers: [EmployeeService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
