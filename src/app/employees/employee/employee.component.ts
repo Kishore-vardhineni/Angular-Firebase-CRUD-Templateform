@@ -34,6 +34,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmitForm(templateForm: NgForm) {
+    debugger
     let data = Object.assign({}, templateForm.value);
     delete data.id;
     if (templateForm.value.id == null) {
